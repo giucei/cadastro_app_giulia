@@ -68,7 +68,7 @@ class Prato {
 const form = document.getElementById('signupForm');
 const msg = document.getElementById('msg');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -84,17 +84,25 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Simular criação do usuário
-  const user = new User(name, email, password);
-  user.saveLocal();
+  // Enviar dados ao endpoint serverless `/api/register`
+  try {
+    const res = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password })
+    });
 
-  showMessage('Cadastro realizado com sucesso! Dados salvos localmente.');
-  form.reset();
-
-  // Em entregas posteriores, o Copilot deve substituir a persistência local por uma chamada fetch
-  // para a MongoDB Data API. No browser não existe 'process.env' — a Vercel injeta variáveis de ambiente
-  // no build/time server. Para chamadas seguras ao Data API, use uma função serverless que leia os
-  // secrets (API_KEY) e faça a requisição do servidor.
+    const data = await res.json();
+    if (res.ok) {
+      showMessage('Cadastro realizado com sucesso!');
+      form.reset();
+    } else {
+      showMessage(data.error || 'Erro no cadastro', true);
+    }
+  } catch (err) {
+    showMessage('Erro ao conectar com o servidor', true);
+    console.error(err);
+  }
 });
 
 function showMessage(text, isError = false) {
