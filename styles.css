@@ -1,10 +1,21 @@
-:root{--bg:#fff;--card:#f7f7f8;--accent:#ff3b30;--text:#111}
-*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#fff 0%,#f0f0f3 100%);color:var(--text);margin:0;padding:24px}
-.container{max-width:420px;margin:40px auto;padding:20px;background:var(--card);border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,0.08)}
-h1{font-size:1.4rem;margin:0 0 12px}
-form{display:grid;gap:10px}
-label{font-size:0.85rem}
-input{padding:10px;border-radius:6px;border:1px solid #ddd}
-button{padding:10px;border-radius:6px;border:0;background:var(--accent);color:#fff;font-weight:600}
-#msg{margin-top:12px;padding:10px;border-radius:6px}
-.hidden{display:none}
+:root{--bg:#6ec1ff;--card:#60aee6;--accent:#fff;--card-inner:#ffffff;--muted:#9fbfdc}
+*{box-sizing:border-box}
+body{font-family: 'Helvetica Neue', Arial, sans-serif; background:linear-gradient(180deg,#6ec1ff 0%,#67b0e6 100%);margin:0;display:flex;align-items:center;justify-content:center;height:100vh}
+.login-wrap{width:100%;max-width:420px;padding:20px}
+.login-card{background:var(--card);border-radius:8px;padding:28px 26px 32px;box-shadow:0 12px 30px rgba(8,30,50,0.2);text-align:center;color:#fff;position:relative}
+.login-card .avatar{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.login-card h2{margin:6px 0 18px;font-weight:600;letter-spacing:1px}
+.form{display:block;text-align:left}
+.field{display:flex;align-items:center;background:rgba(255,255,255,0.95);border-radius:6px;padding:10px 12px;margin-bottom:12px}
+.field .icon{margin-right:10px;font-size:18px;opacity:0.6}
+.field input{border:0;outline:0;font-size:15px;width:100%}
+.options{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;color:rgba(255,255,255,0.9)}
+.remember input{margin-right:8px}
+.forgot{color:rgba(255,255,255,0.9);font-size:13px;text-decoration:underline}
+.btn-login{width:100%;padding:12px;border-radius:6px;border:0;background:#ffffff;color:#2e6f9e;font-weight:700;font-size:16px}
+.btn-login:hover{opacity:0.95}
+
+/* Responsivo */
+@media (max-width:420px){
+	.login-card{padding:22px}
+}

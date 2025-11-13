@@ -7,22 +7,32 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="container">
-    <h1>Cadastro - iFood (Projeto)</h1>
-    <form id="signupForm">
-      <label for="name">Nome</label>
-      <input id="name" name="name" type="text" required />
+  <main class="login-wrap">
+    <div class="login-card">
+      <div class="avatar"> 
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6v0H4z" fill="#fff"/></svg>
+      </div>
+      <h2>USER LOGIN</h2>
 
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required />
+      <form id="signupForm" class="form">
+        <div class="field">
+          <span class="icon">👤</span>
+          <input id="name" name="name" type="text" placeholder="Username" required />
+        </div>
 
-      <label for="password">Senha</label>
-      <input id="password" name="password" type="password" required minlength="6" />
+        <div class="field">
+          <span class="icon">🔒</span>
+          <input id="password" name="password" type="password" placeholder="Password" required minlength="6" />
+        </div>
 
-      <button type="submit">Cadastrar</button>
-    </form>
+        <div class="options">
+          <label class="remember"><input type="checkbox"/> Remember me</label>
+          <a class="forgot" href="#">Forgot Password?</a>
+        </div>
 
-    <div id="msg" class="hidden"></div>
+        <button type="submit" class="btn-login">LOGIN</button>
+      </form>
+    </div>
   </main>
 
   <script src="app.js"></script>
