@@ -1,0 +1,13 @@
+{
+  "name": "cadastro_app_giulia",
+  "version": "1.0.0",
+  "description": "Projeto simples de cadastro para atividade iFood",
+  "main": "db.js",
+  "scripts": {
+    "start": "node db.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mongodb": "^5.0.0"
+  }
+}
